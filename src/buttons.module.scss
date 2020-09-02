@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+$themes: (
+    "default": (lightgrey black),
+    "primary": (rgb(28, 28, 255) white),
+    "secondary": (rgb(76, 76, 121) white),
+    "danger": (red white)
+);
+
+button {
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+    border-radius: 5px 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.4s;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 3px 5px -5px black;
+
+    & {
+        vertical-align: middle;
+    }
+
+    & > .material {
+        font-size: 1em;
+        margin: 0 5px;
+        box-sizing: border-box;
+        vertical-align: middle;
+    }
+
+    &.btn-sm {
+        padding: 10px;
+    }
+
+    &.btn-md {
+        padding: 13px;
+    }
+
+    &.btn-lg {
+        padding: 17px;
+    }
+
+    &.btn-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &.btn-disable-shadow {
+        box-shadow: none;
+    }
+
+    @each $theme, $colors in $themes {
+        &.btn-#{$theme} {
+            $bg: nth($colors, 1);
+            $fg: nth($colors, 2);
+            color: $fg;
+
+            &.btn-fill {
+                background-color: $bg;
+
+                &:not(.btn-disabled):hover {
+                    background-color: darken($bg, 10%);
+                }
+            }
+    
+            &.btn-outline {
+                border: 1px solid $bg;
+                background-color: transparent;
+                color: $bg;
+
+                &:not(.btn-disabled):hover {
+                    background-color: transparentize($bg, 0.8);
+                }
+            }
+    
+            &.btn-text {
+                background-color: transparent;
+                color: $bg;
+
+                &:not(.btn-disabled):hover {
+                    background-color: transparentize($bg, 0.8);
+                }
+            }
+        }
+    }
+}
