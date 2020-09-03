@@ -43,6 +43,7 @@ ReactDOM.render(
     </div>
     <div>
       <Button disabled>Default</Button>
+      <Button variant="text" disabled>Default</Button>
       <Button disableShadow>Default</Button>
     </div>
   </React.StrictMode>,
