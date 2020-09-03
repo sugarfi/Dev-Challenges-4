@@ -45,6 +45,7 @@ ReactDOM.render(
       <Button disabled>Default</Button>
       <Button variant="text" disabled>Default</Button>
       <Button disableShadow>Default</Button>
+      <Button onClick={() => alert('hi')} color="primary">Default</Button>
     </div>
   </React.StrictMode>,
   document.getElementById('root')

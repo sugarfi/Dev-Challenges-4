@@ -22,19 +22,23 @@ export default function Button(props) {
         'lg': styles['btn-lg'],
     }
 
+
+    const { variant, color, size, disabled, disableShadow, children, startIcon, endIcon, ...other } = props;
+
     return (
         <button
             className={
-                `${variants[props.variant]}` +
-                ` ${colors[props.color]}` +
-                ` ${sizes[props.size]}` +
-                ` ${props.disabled ? styles['btn-disabled'] : ''}` +
-                ` ${props.disableShadow ? styles['btn-disable-shadow'] : ''}`
+                `${variants[variant]}` +
+                ` ${colors[color]}` +
+                ` ${sizes[size]}` +
+                ` ${disabled ? styles['btn-disabled'] : ''}` +
+                ` ${disableShadow ? styles['btn-disable-shadow'] : ''}`
             }
+            { ...other }
         >
-            <i class={`material-icons ${styles.material}`}>{props.startIcon}</i>
-            {props.children}
-            <i class={`material-icons ${styles.material}`}>{props.endIcon}</i>
+            <i className={`material-icons ${styles.material}`}>{startIcon}</i>
+            {children}
+            <i className={`material-icons ${styles.material}`}>{endIcon}</i>
         </button>
     );
 }
